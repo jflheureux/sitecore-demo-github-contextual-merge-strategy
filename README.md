@@ -1,10 +1,6 @@
 # GitHub Contextual Merge Strategy
 
-[slack-badge]: https://img.shields.io/badge/Slack-Hookdeck%20Developers-blue?logo=slack
-
-[![slack-badge]](https://join.slack.com/t/hookdeckdevelopers/shared_invite/zt-yw7hlyzp-EQuO3QvdiBlH9Tz2KZg5MQ)
-
-> Defines a contextual merge strategy on GitHub pull requests according to the source branch.
+> Defines a contextual merge strategy on GitHub pull requests according to the source branch for Sitecore Demo repositories.
 
 ## Overview
 
@@ -12,50 +8,44 @@ GitHub defaults to the last merging strategy used (e.g. squashing vs.
 creating a merge commit).
 
 This is annoying because we usually squash feature branches into
-`staging` but want to do a merge commit when we merge `staging` to
-`master`. It's easy to forget about it and when `staging` is squashed to
-`master` it causes nasty issues.
+`develop` but want to do a merge commit when we merge `develop` to
+`main`. It's easy to forget about it and when `develop` is squashed to
+`main` it causes nasty issues.
 
 This extension prevents that by defaulting the merge strategy based on
 the branch we want to merge!
 
-See the full story and implementation details
+See the full story and implementation details by Hookdeck in
 [this blog post](https://hookdeck.com/blog/post/building-chrome-extension-disable-squash-and-merge-github-branches).
 
 ## Customization
 
 ### Organization
 
-By default the extension runs only on GitHub repos in the [Hookdeck organization](https://github.com/hookdeck)!
-
-This is probably not what you want, so you should configure the
-`permissions` in [`manifest.json`](manifest.json) accordingly, as well
-as the URL host and prefix in [`background.js`](background.js).
-
-This can be done with this simple script:
-
-```sh
-sed -i.old 's/hookdeck/your-github-org/g' manifest.json background.js
-rm manifest.json.old background.js.old
-```
+The extension runs only on GitHub demo repositories (Sitecore.Demo.*) in the [Sitecore organization](https://github.com/Sitecore)!
 
 ### Branches
 
-By default, it will select merge commit on `master`, `main`, `staging`
-and `preview`, and squash & merge on other branches. If you want to tweak
-that, edit [`script.js`](script.js)!
+It will select merge commit on `master`, `main`,
+and `develop`, and squash & merge on other branches.
 
 ## Installation
 
 Clone this repository:
 
 ```sh
-git clone https://github.com/hookdeck/github-contextual-merge-strategy
+git clone https://github.com/jflheureux/sitecore-demo-github-contextual-merge-strategy
 ```
 
 ### Chrome
 
 In the Chrome extensions page `chrome://extensions`, enable *developer
+mode* to get the option to *load unpacked* extensions, and point it to
+this directory.
+
+### Edge
+
+In the Edge extensions page `edge://extensions`, enable *developer
 mode* to get the option to *load unpacked* extensions, and point it to
 this directory.
 

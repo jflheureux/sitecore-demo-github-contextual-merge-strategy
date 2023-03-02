@@ -1,8 +1,8 @@
 {
   "manifest_version": 3,
-  "name": "GitHub Contextual Merge Strategy",
-  "version": "2.0.1",
-  "description": "Defines a contextual merge strategy on GitHub pull requests according to the source branch.",
+  "name": "Sitecore Demo GitHub Contextual Merge Strategy",
+  "version": "1.0.0",
+  "description": "Defines a contextual merge strategy on GitHub pull requests according to the source branch for Sitecore Demo repositories.",
   "background": {
     "service_worker": "background.js"
   },
@@ -11,11 +11,11 @@
     "scripting"
   ],
   "host_permissions": [
-    "https://github.com/hookdeck/*"
+    "https://github.com/Sitecore/Sitecore.Demo.*"
   ],
   "browser_specific_settings": {
     "gecko": {
-      "id": "github-contextual-merge-strategy@hookdeck.com"
+      "id": "sitecore-demo-github-contextual-merge-strategy@sitecore.com"
     }
   }
 }

@@ -1,8 +1,8 @@
 /* global MutationObserver */
 
 function updateStrategy () {
-  if (['master', 'main', 'staging', 'preview'].includes(document.querySelector('.head-ref').textContent)) {
-    // If merging from staging or preview (likely to master), do a merge commit
+  if (['master', 'main', 'develop'].includes(document.querySelector('.head-ref').textContent)) {
+    // If merging from develop (likely to main), or from main to main, or from master to master, do a merge commit
     console.log('Clicking merge')
     document.querySelector('.merge-message details button[value=merge]').click()
   } else {
