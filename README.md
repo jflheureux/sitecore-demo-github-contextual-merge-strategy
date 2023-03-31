@@ -26,8 +26,7 @@ The extension runs only on GitHub demo repositories (Sitecore.Demo.*) in the [Si
 
 ### Branches
 
-It will select merge commit on `master`, `main`,
-and `develop`, and squash & merge on other branches.
+It will select merge commit on `master` and `main`, and squash & merge on other branches.
 
 ## Installation
 
